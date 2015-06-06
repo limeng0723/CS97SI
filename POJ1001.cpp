@@ -155,13 +155,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	while (cin >> s >> n)
 	{
 		position = Pre_processing(&s);
-		position = s.length() - position;
+		if (position != -1)
+			position = s.length() - position;
 		s = Exponent(s, n);
 		if (s[0] == '0')
-		{
 			s.erase(s.begin());
-		}
-		s.insert(s.end() - position * n, '.');
+		if (position !=-1)
+			s.insert(s.end() - position * n, '.');
 		cout << s << endl;
 	}
 }
